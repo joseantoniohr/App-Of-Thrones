@@ -1,73 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:padding="10dp"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/detailContainer"
     android:layout_height="match_parent"
-    android:layout_width="match_parent"
-    android:orientation="vertical">
+    android:layout_width="match_parent">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
-        android:text="Personaje"
-        android:textStyle="bold"
-        android:textSize="18sp"/>
 
-    <TextView
-        android:id="@+id/labelName"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="John Snow" />
-
-    <TextView
-        android:id="@+id/labelTitle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:text="Lord comandante de la guardia nocturna" />
-
-    <TextView
-        android:id="@+id/labelBorn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:text="283 AC" />
-
-    <TextView
-        android:id="@+id/labelActor"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:text="Kit Harington" />
-
-    <TextView
-        android:id="@+id/labelQuote"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:text="'I know nothing'"
-        android:textStyle="italic"/>
-
-    <TextView
-        android:id="@+id/labelParents"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:text="Ned Stark" />
-
-    <TextView
-        android:id="@+id/labelSpouse"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:text="Sin esposa" />
-
-    <Button
-        android:id="@+id/btnTest"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="CASA STARK" />
-
-</LinearLayout>
+</FrameLayout>
