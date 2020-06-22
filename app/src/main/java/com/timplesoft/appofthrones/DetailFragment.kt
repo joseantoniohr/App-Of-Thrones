@@ -4,10 +4,12 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import android.widget.Toast
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
-import kotlinx.android.synthetic.main.fragment_detail.*
+import com.squareup.picasso.Picasso
+import kotlinx.android.synthetic.main.data_character.*
+import kotlinx.android.synthetic.main.header_character.*
 
 class DetailFragment : Fragment() {
 
@@ -36,8 +38,7 @@ class DetailFragment : Fragment() {
         val id = arguments!!.getString("key_id")
         val character = CharactersRepo.findCharacterById(id!!)
 
-        val btnTest: Button = view.findViewById(R.id.btnTest)
-        btnTest.setOnClickListener {
+        btnHouse.setOnClickListener {
             Toast.makeText(context, character?.house?.words, Toast.LENGTH_SHORT).show()
         }
 
@@ -50,7 +51,21 @@ class DetailFragment : Fragment() {
                 labelParents.text = "${father} & ${mother}"
                 labelQuote.text = quote
                 labelSpouse.text = spouse
-                btnTest.text = house.name
+
+                val overlayColor = House.getOverlayColor(house.name)
+                imgOverlay.background = ContextCompat.getDrawable(context!!, overlayColor)
+
+                val baseColor = House.getBaseColor(house.name)
+                btnHouse.backgroundTintList = ContextCompat.getColorStateList(context!!, baseColor)
+
+                val icon = House.getIcon(house.name)
+                btnHouse.setImageDrawable(ContextCompat.getDrawable(context!!, icon))
+
+                Picasso.get()
+                    .load(character.img)
+                    .placeholder(R.drawable.test)
+                    .into(imgCharacter)
+
             }
         }
 
