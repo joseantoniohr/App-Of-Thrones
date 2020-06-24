@@ -1,5 +1,6 @@
 package com.timplesoft.appofthrones
 
+import java.io.Serializable
 import java.util.*
 
 data class Character(
@@ -16,7 +17,7 @@ data class Character(
     var house: House
 )
 
-data class House(var name: String, var region: String, var words: String, var img: String) {
+data class House(var name: String, var region: String, var words: String, var img: String) : Serializable {
 
     companion object {
 
@@ -36,18 +37,23 @@ data class House(var name: String, var region: String, var words: String, var im
         )
 
         fun getOverlayColor(houseId: String): Int {
-            val pallete: Array<Int> = resources.getOrDefault(houseId, DEFAULT_PALLETE)
-            return pallete[0]
+            return getResourceFromPallete(houseId, 0)
         }
 
         fun getBaseColor(houseId: String): Int {
-            val pallete: Array<Int> = resources.getOrDefault(houseId, DEFAULT_PALLETE)
-            return pallete[1]
+            return getResourceFromPallete(houseId, 1)
         }
 
         fun getIcon(houseId: String): Int {
-            val pallete: Array<Int> = resources.getOrDefault(houseId, DEFAULT_PALLETE)
-            return pallete[2]
+            return getResourceFromPallete(houseId, 2)
+        }
+
+        private fun getResourceFromPallete(houseId: String, index: Int): Int {
+            var pallete: Array<Int>? = DEFAULT_PALLETE
+            if ( resources.containsKey(houseId) ) pallete = resources[houseId]
+
+            if ( pallete != null ) return pallete[index]
+            else return  DEFAULT_PALLETE[index]
         }
 
     }

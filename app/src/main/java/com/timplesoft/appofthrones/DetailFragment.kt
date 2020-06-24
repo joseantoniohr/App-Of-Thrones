@@ -69,6 +69,18 @@ class DetailFragment : Fragment() {
             }
         }
 
+        btnHouse.setOnClickListener {
+            if ( character != null ) {
+                showDialog(character.house)
+            }
+        }
+
+
+    }
+
+    private fun showDialog(house: House) {
+        val dialog = HouseDialog.newInstance(house)
+        dialog.show(childFragmentManager, "house_dialog")
     }
 
 }
